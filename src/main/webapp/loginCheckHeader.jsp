@@ -6,4 +6,8 @@
 	UserBean user = (UserBean) session.getAttribute("user");
 	
 	//もし未ログイン状態ならログイン画面へ遷移させる
+	if (user == null) {
+		response.sendRedirect("login.jsp");
+		return; //これ以降のJavaコードは実行されない
+	}
 %>
