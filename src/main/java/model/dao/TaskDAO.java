@@ -32,12 +32,13 @@ public class TaskDAO {
 			ResultSet res = pstmt.executeQuery(sql);
 			while (res.next()) {
 				task = new TaskBean();
-				task.setTaskId(res.getInt("task_id"));
-				task.setTaskName(res.getString("task_name"));
-				task.setCategoryName(res.getString("categoryName"));
-				task.setLimitDate(res.getDate("limitDate"));
-				task.setStatusName(res.getString("statusName"));
-				task.setMemo(res.getString("memo"));
+        task.setTaskId(res.getInt("task_id"));
+				task.setTaskName(res.getString("t1.task_name"));
+				task.setCategoryName(res.getString("c2.category_name"));
+				task.setLimitDate(res.getDate("t1.limit_date"));
+				task.setUserName(res.getString("u3.user_name"));
+				task.setStatusName(res.getString("s4.status_name"));
+				task.setMemo(res.getString("t1.memo"));
 				
 				list.add(task);
 			}
