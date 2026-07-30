@@ -8,15 +8,13 @@
 <title>タスク一覧表示画面</title>
 </head>
 <body>
+	<%@ include file="loginCheckHeader.jsp" %>
 	<h1>タスク一覧表示</h1>
 	
 	<hr>
 	<br>
 	
 	<%
-		//セッションスコープからユーザ情報を取得
-		UserBean user = (UserBean) session.getAttribute("user");
-		
 		//リクエストスコープからタスクリストを取得
 		List<TaskBean> taskList = (List<TaskBean>) request.getAttribute("taskList");
 		
@@ -41,18 +39,57 @@
 			for (TaskBean task : taskList) {
 				%>
 				<tr>
-					<td><%=task.getTaskName() %></td>
-					<td><%=task.getCategoryName() %></td>
-					<td><%=task.getLimitDate() %></td>
-					<td><%=task.getUserName() %></td>
-					<td><%=task.getStatusName() %></td>
-					<td><%=task.getMemo() %></td>
+					<td>
+					<%
+						if (task.getTaskName() != null) {
+							%><%=task.getTaskName() %><%
+						}
+					%>
+					</td>
+					<td>
+					<%
+						if (task.getCategoryName() != null) {
+							%><%=task.getCategoryName() %><%
+						}
+					%>
+					</td>
+					<td>
+					<%
+						if (task.getLimitDate() != null) {
+							%><%=task.getLimitDate() %><%
+						}
+					%>
+					</td>
+					<td>
+					<%
+						if (task.getUserName() != null) {
+							%><%=task.getUserName() %><%
+						}
+					%>
+					</td>
+					<td>
+					<%
+						if (task.getStatusName() != null) {
+							%><%=task.getStatusName() %><%
+						}
+					%>
+					</td>
+					<td>
+					<%
+						if (task.getMemo() != null) {
+							%><%=task.getMemo() %><%
+						}
+					%>
+					</td>
 					<td>
 						<%
 							if (user.getUserName().equals(task.getUserName())) {
 								%>
-									<form action="edit.jsp<?<%=task.getTaskName() %>" method="get"><input type="submit" value="編集"></form>
-									<form action="rest.jsp?<%=task.getTaskName() %>" method="get"><input type="submit" value="削除"></form>
+									<div style="display:inline-flex">
+										<form action="edit.jsp?taskName=<%=task.getTaskId() %>" method="get"><input type="submit" value="編集"></form>
+										&nbsp<!-- 半角スペース -->
+										<form action="rest.jsp?taskName=<%=task.getTaskId() %>" method="get"><input type="submit" value="削除"></form>
+									</div>
 								<%
 							}
 						%>

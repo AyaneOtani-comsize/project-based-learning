@@ -7,6 +7,7 @@
 <title>タスク登録画面</title>
 </head>
 <body>
+	<%@ include file="loginCheckHeader.jsp" %>
 	<h1>タスク登録</h1>
 	
 	<hr>
