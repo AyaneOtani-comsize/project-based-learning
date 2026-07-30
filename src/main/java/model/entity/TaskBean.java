@@ -4,7 +4,11 @@ import java.util.Date;
 
 public class TaskBean {
 	/**
-	 * タスク
+	 * タスクID
+	 */
+	private int taskId;
+	/**
+	 * タスク名
 	 */
 	private String taskName;
 	/**
@@ -27,6 +31,14 @@ public class TaskBean {
 	 * メモ
 	 */
 	private String memo;
+
+	public int getTaskId() {
+		return taskId;
+	}
+
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
+	}
 
 	public String getTaskName() {
 		return taskName;
