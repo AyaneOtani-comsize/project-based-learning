@@ -7,6 +7,7 @@
 <title>メニュー画面</title>
 </head>
 <body>
+	<%@ include file="loginCheckHeader.jsp" %>
 	<h1>メニュー</h1>
 	
 	<hr>
