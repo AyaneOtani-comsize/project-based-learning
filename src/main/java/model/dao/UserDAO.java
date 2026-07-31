@@ -13,6 +13,13 @@ import model.entity.UserBean;
  */
 public class UserDAO {
 
+	/**
+	 * ユーザ名の一致するユーザの情報を取得
+	 * @param userId 検索条件のユーザ名
+	 * @return 条件に合致したユーザ情報
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public UserBean login(String userId) throws ClassNotFoundException, SQLException {
 		//取得した利用者情報を保持するためのUserBean
 		UserBean user = null;
